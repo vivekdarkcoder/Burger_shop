@@ -1,0 +1,74 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    font-size:border-box;
+    scroll-behavior: smooth;
+}
+*{
+    text-decoration: none;
+}
+@import "color";
+
+.notFound{
+    background-color:$pink;
+    width:100%;
+    height:80vh;
+    >main{
+        background-color:White;
+        height:100%;
+        max-width: 900px;
+        margin: auto;
+        padding:2rem;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        >div{
+            display: flex;
+            align-items: center;
+            margin: 3rem;
+            > svg{
+                font-size: 4rem;
+
+            }
+            >h1{
+               text-transform: uppercase; 
+               align-items: center;
+               font: 100 3rem "Roboto";
+               margin: 0 1rem;
+
+            }
+        }
+        >a{
+            background-color: $red;
+            color: white;
+            padding:0.5rem 1rem;
+            border-radius: 5px;
+            text-align: center;
+            margin: 1rem;
+            font-size:1.1rem
+
+        }
+    }
+}
+
+.loader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:80vh;
+    >svg{
+        font-size:5rem;
+        color: $red;
+        text-align: center;
+        justify-content:center;
+        transition: translate(-50%, -50%); 
+        opacity: 0.3;
+
+    }
+    > div{
+        font-size:1rem;
+        justify-content: center;
+        text-align: center;
+    }
+}
