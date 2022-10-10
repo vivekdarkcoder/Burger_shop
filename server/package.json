@@ -9,6 +9,7 @@
     "mongoose": "^6.6.3",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
+    "razorpay": "^2.8.3",
     "react-icons": "^4.4.0"
   },
   "name": "server",
