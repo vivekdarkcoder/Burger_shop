@@ -14,7 +14,7 @@ const options = {
     <section className='home'>
       <div >
         <motion.h1 {...options} >Burger Wala</motion.h1>
-        <motion.p {...options} transition={{delay:0.3}}>Give yourself a tasty burgur</motion.p>
+        <motion.p {...options} transition={{delay:0.3}}>Give yourself a tasty burger</motion.p>
       </div>
       <motion.a 
         initial= {{y: "-100%", opacity: 0}}
