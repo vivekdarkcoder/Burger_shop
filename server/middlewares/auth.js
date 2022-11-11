@@ -11,7 +11,7 @@ export const isAuthenticated = (req, res, next) => {
 
 
 export const authorizeAdmin = (req, res, next) => {
-        console.log(req)
+        
     if(req.user.role!=="admin"){
         return next(new ErrorHandler("Only Admin Allowed ", 405))
     }
