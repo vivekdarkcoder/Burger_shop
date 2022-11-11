@@ -6,7 +6,8 @@ import { FaUser } from "react-icons/fa";
 import {motion} from "framer-motion"
 
 
-const Header = ({isAuthenticated = false}) => {
+const Header = ({isAuthenticated}) => {
+  console.log('object :>> ', isAuthenticated);
   return (
     <nav>
       <motion.div 
@@ -20,7 +21,7 @@ const Header = ({isAuthenticated = false}) => {
         <Link to="/contact">Contact</Link>
         <Link to="/about">About</Link>
         <Link to="/cart"><FiShoppingCart/></Link>
-        <Link to={isAuthenticated?"/me":"/login"}>
+        <Link to={isAuthenticated ? "/me" : "/login"}>
         {isAuthenticated ? <FaUser/>:<FiLogIn/>}
       </Link>
       </div>

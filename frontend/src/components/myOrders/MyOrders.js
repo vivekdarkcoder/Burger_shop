@@ -1,46 +1,64 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom"
 import { AiOutlineEye } from "react-icons/ai"
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getMyOrders } from '../../redux/action/order'
+import Loader from '../layout/Loader'
+import toast from "react-hot-toast"
 
 const MyOrders = () => {
 
-  const arr = [1, 2, 3, 4, 5, 6]
+  const { orders, loading, error } = useSelector((state) => state.orders)
+  const dispatch = useDispatch()
+  console.log(orders, "orders")
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error)
+      dispatch({type:"clearError"})
+    }
+    dispatch(getMyOrders())
+  }, [dispatch, error])
 
   return (
     <section className="tableClass">
-      <main>
-        <table>
-          <thead>
-            <tr>
-              <th>Order Id</th>
-              <th>Status</th>
-              <th>Item Qty</th>
-              <th>Amount</th>
-              <th>Payment Method</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {arr.map((i) => (
-
-              <tr key={i} >
-                <td>Aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>₹{20002}</td>
-                <td><Link to={"/order/orderdetaiils"}>
-                  <AiOutlineEye />
-                </Link></td>
+      {loading === true ? <Loader /> :
+        <main>
+          <table>
+            <thead>
+              <tr>
+                <th>Order Id</th>
+                <th>Status</th>
+                <th>Item Qty</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Action</th>
               </tr>
-            ))
+            </thead>
+            <tbody>
+              {orders && orders.map((i) => (
 
-            }
-          </tbody>
-        </table>
-      </main>
+                <tr key={i._id} >
+                  <td>#{i._id}</td>
+                  <td>{i.orderStatus}</td>
+                  <td>{
+                    i.orderItems.vegCheeseBurger.quantity +
+                    i.orderItems.cheeseBurger.quantity +
+                    i.orderItems.burgerWithFries.quantity
+                  }</td>
+                  <td>₹{i.totalAmount}</td>
+                  <td>{i.paymentMethod}</td>
+                  <td><Link to={`/order/${i._id}`}>
+                    <AiOutlineEye />
+                  </Link></td>
+                </tr>
+              ))
+
+              }
+            </tbody>
+          </table>
+        </main>
+      }
     </section>
   )
 }

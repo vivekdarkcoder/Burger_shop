@@ -1,42 +1,54 @@
-import React from 'react'
-import me from "../../assets/me.jpeg"
+import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAdminUsers } from "../../redux/action/admin";
+import Loader from "../layout/Loader";
 
 const Users = () => {
+  const dispatch = useDispatch();
 
-    const arr = [1, 2, 3, 4]
+  const { loading, users } = useSelector((state) => state.admin);
+
+  useEffect(() => {
+    dispatch(getAdminUsers());
+  }, [dispatch]);
 
   return (
     <section className="tableClass">
-    <main>
-      <table>
-        <thead>
-          <tr>
-            <th>User Id</th>
-            <th>Name</th>
-            <th>Photo</th>
-            <th>Role</th>
-            <th>Since</th>
-          </tr>
-        </thead>
-        <tbody>
-          {arr.map((i) => (
+      {loading === false ? (
+        <main>
+          <table>
+            <thead>
+              <tr>
+                <th>User Id</th>
+                <th>Name</th>
+                <th>Photo</th>
+                <th>Role</th>
+                <th>Since</th>
+              </tr>
+            </thead>
 
-            <tr key={i} >
-              <td>trytyrt</td>
-              <td>Vivek</td>
-              <td><img src={me} alt="user" /> </td>
-              <td>Admin</td>
-              <td>{"12-3-2020"}</td>
-           
-            </tr>
-          ))
+            <tbody>
+              {users &&
+                users.map((i) => (
+                  <tr key={i._id}>
+                    <td>#{i._id}</td>
+                    <td>{i.name}</td>
+                    <td>
+                      <img src={i.photo} alt="User" />
+                    </td>
+                    <td>{i.role}</td>
+                    <td>{i.createdAt.split("T")[0]}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Loader />
+      )}
+    </section>
+  );
+};
 
-          }
-        </tbody>
-      </table>
-    </main>
-  </section>
-  )
-}
-
-export default Users
+export default Users;

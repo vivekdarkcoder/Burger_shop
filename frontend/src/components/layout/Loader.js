@@ -2,7 +2,7 @@ import React from 'react'
 import { IoFastFoodOutline } from "react-icons/io5"
 import { motion } from "framer-motion"
 
-const Loder = () => {
+const Loader = () => {
 
     const options = {
         initial: {
@@ -32,4 +32,4 @@ const Loder = () => {
     )
 }
 
-export default Loder
+export default Loader
