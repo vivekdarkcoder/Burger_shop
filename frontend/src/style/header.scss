@@ -1,39 +1,47 @@
 @import "color";
 
-nav{
+nav {
     height: 3rem;
-    
+
     padding: 1rem;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.229);
     justify-content: space-between;
-    background-color:white;
+    background-color: white;
     display: flex;
 
-    > div {
+    >div {
         text-align: center;
         display: flex;
-    
 
-        > svg {
+
+        >svg {
             color: $red;
-            font-size:3rem;
+            font-size: 3rem;
         }
-        > a {
+
+        >a {
             margin: 0 2rem;
-            color: dark;
-            transition: color 0.3s ;
-            &:hover{
-                color: $lightdark
+            color: $red;
+            font-weight: bold;
+            transition: color 0.3s;
+            cursor: pointer;
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid $red;
+            border-radius: 10px;
+
+            &:hover {
+                color: white;
+                border: 1px solid $lightdark;
+                padding: 0.5rem 1.25rem;
+                border-radius: 10px;
+                background-color:$red;
             }
-            > svg{
-                color: $red;
-                transition: inherit;
+
+            >svg {
                 font-size: 1.5rem;
-                &:hover{
-                    color: $lightdark;
-                    
-                }
+        
             }
 
 
@@ -42,12 +50,25 @@ nav{
     }
 
 }
-@media  screen and (max-width:600px){
+@media screen and (max-width:600px) {
     nav {
-        padding: 0es.5rem;
-        >div > a{
+        padding: 0.5rem;
+
+        >div>a {
             margin: 0 0.5rem;
+            padding: 0;
+            color: dark;
+            transition: color 0.3s ;
+            border: none;
+            &:hover{
+                color: white;
+                padding: 5px;
+                border: none;
+                border: 1px solid $red;
+        
+            }
+
         }
     }
-    
+
 }

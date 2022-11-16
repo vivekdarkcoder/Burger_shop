@@ -4,6 +4,7 @@ import { cartReducer } from "./reducers/cartReducer";
 import { authReducer } from "./reducers/userReducer";
 import { orderReducer, ordersReducer } from "./reducers/ordersReducer";
 import { adminReducer } from "./reducers/adminReducer";
+import { ContactReducer } from "./reducers/contectReducer";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         order: orderReducer,
         orders: ordersReducer,
         admin:adminReducer,
+        contact: ContactReducer,
     },
 })
 

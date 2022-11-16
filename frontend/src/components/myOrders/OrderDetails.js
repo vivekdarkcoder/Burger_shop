@@ -22,7 +22,8 @@ const OrderDetails = () => {
           <h1>Shipping</h1>
           <p>
             <b>Address:</b>
-            {`${order?.shippingInfo?.hNo} ${order?.shippingInfo?.city} ${order?.shippingInfo?.state}  ${order?.shippingInfo?.country}  ${order?.shippingInfo?.pinCode}`}
+            <div> {`${order?.shippingInfo?.hNo} ${order?.shippingInfo?.city}  ${order?.shippingInfo?.state}`} </div> 
+            <div>{`${order?.shippingInfo?.country}  ${order?.shippingInfo?.pinCode}`}</div>
           </p>
         </div>
         <div>

@@ -17,13 +17,13 @@ const Header = ({isAuthenticated}) => {
         <IoFastFoodOutline />
       </motion.div>
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/about">About</Link>
+        <Link className="btn-bg" to="/">Home</Link>
+        <Link className="btn-bg" to="/contact">Contact</Link>
+        <Link className="btn-bg"to="/about">About</Link>
         <Link to="/cart"><FiShoppingCart/></Link>
         <Link to={isAuthenticated ? "/me" : "/login"}>
         {isAuthenticated ? <FaUser/>:<FiLogIn/>}
-      </Link>
+         </Link>
       </div>
     </nav>
   )

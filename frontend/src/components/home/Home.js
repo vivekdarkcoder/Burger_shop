@@ -2,6 +2,7 @@ import React from 'react'
 import Founder from "../home/Founder"
 import Menu from "../home/Menu"
 import { motion } from "framer-motion"
+import burgerMain from "../../assets/burger-main.png"
 
 const Home = () => {
 const options = {
@@ -16,6 +17,7 @@ const options = {
         <motion.h1 {...options} >Burger Wala</motion.h1>
         <motion.p {...options} transition={{delay:0.3}}>Give yourself a tasty burger</motion.p>
       </div>
+      {/* <div>{burgerMain}</div> */}
       <motion.a 
         initial= {{y: "-100%", opacity: 0}}
         whileInView={{y: 0 , opacity: 1}}

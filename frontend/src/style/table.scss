@@ -63,3 +63,8 @@
         }
     }
 }
+@media screen and (max-width:600px){
+    .tableClass > main > table {
+        margin: 1rem;
+    }
+}

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import burger1 from "../../assets/burger-png-33933.png"
+import burger2 from "../../assets/burger2.png"
+import burger3 from "../../assets/burger3.png"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 const CartItem = ({ value, title, img, increment, decrement }) => (
@@ -108,14 +110,14 @@ const Cart = () => {
                 />
                 <CartItem
                     title={"veg cheese burger"}
-                    img={burger1}
+                    img={burger2}
                     value={vegCheeseBurger}
                     increment={() => increment(2)}
                     decrement={() => decrement(2)}
                 />
                 <CartItem
                     title={"cheese burger With Fries"}
-                    img={burger1}
+                    img={burger3}
                     value={burgerWithFries}
                     increment={() => increment(3)}
                     decrement={() => decrement(3)}

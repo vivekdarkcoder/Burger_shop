@@ -1,5 +1,7 @@
 import React from 'react'
 import burger1 from "../../assets/burger-png-33933.png"
+import burger2 from "../../assets/burger2.png"
+import burger3 from "../../assets/burger3.png"
 import { MenuCard } from "./MenuCard"
 import toast from "react-hot-toast"
 import { useDispatch } from 'react-redux'
@@ -43,14 +45,14 @@ const Menu = () => {
           delay={0.1} />
         <MenuCard
           ItemNum={2}
-          burgersource={burger1}
+          burgersource={burger2}
           price={500}
           title="veg cheese burger "
           handler={addToCardHandler}
           delay={0.5} />
         <MenuCard
           ItemNum={3}
-          burgersource={burger1}
+          burgersource={burger3}
           price={1800}
           title="cheese burger With Fries"
           handler={addToCardHandler}
