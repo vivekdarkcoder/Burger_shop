@@ -7,7 +7,7 @@ export const contactUser = (  name, email, message ) =>  async (dispatch) =>{
         dispatch({
             type: "contactRequest",
         });
-        const { data } = await axios.post(`${server}`, { name, email, message}, {
+        const { data } = await axios.post(`${server}/contact`, { name, email, message}, {
             header: {
                 "content-type": "application/json"
             },
