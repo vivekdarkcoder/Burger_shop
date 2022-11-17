@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import burger1 from "../../assets/burger-png-33933.png"
 import toast from "react-hot-toast"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { contactUser } from '../../redux/action/contact'
 
 const Contact = () => {
@@ -17,7 +17,7 @@ const Contact = () => {
     console.log('data :>> ', data);
     dispatch(contactUser(name, email, message))
   }
-  
+  console.log( error, messagef  )
   useEffect(() => {
     if (error) {
       toast.error(error)
@@ -31,7 +31,7 @@ const Contact = () => {
         type: "clearMessage",
       });
     }
-  }, [dispatch, error, message])
+  }, [dispatch, error, messagef])
 
   return (
     <section className="contact">
