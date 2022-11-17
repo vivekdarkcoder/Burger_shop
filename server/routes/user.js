@@ -35,7 +35,7 @@ router.get(
 
 router.get("/me", isAuthenticated, myProfile)
 router.get("/logout", logout)
-router.post("/contact" , sendMessage)
+router.post("/contact" ,isAuthenticated, sendMessage)
 // Admin Routes
 router.get("/admin/users", isAuthenticated, authorizeAdmin, getAdminUsers)
 router.get("/admin/stats", isAuthenticated, authorizeAdmin, getAdminStats)
