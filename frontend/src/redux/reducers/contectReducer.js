@@ -7,7 +7,7 @@ export const ContactReducer = createReducer( {}, {
     },
     contactSuccess :(state, action) =>{
     state.loading = false;
-    state.message = action.payload;
+    state.messagef = action.payload;
     },
     contactFailure :(state, action) =>{
         state.loading = false;

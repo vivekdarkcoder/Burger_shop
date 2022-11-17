@@ -1,21 +1,37 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion"
 import burger1 from "../../assets/burger-png-33933.png"
-// import toast from "react-hot-toast"
+import toast from "react-hot-toast"
 import { useDispatch } from "react-redux"
 import { contactUser } from '../../redux/action/contact'
+
 const Contact = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
+  const { error, messagef  } = useSelector(state => state.auth)
   const submitHandler = (e) => {
     e.preventDefault();
-    const data ={ name, email, message}
+    const data = { name, email, message }
     console.log('data :>> ', data);
     dispatch(contactUser(name, email, message))
   }
-
+  
+  useEffect(() => {
+    if (error) {
+      toast.error(error)
+      dispatch({
+        type: "clearError",
+      });
+    }
+    if (message) {
+      toast.success(messagef)
+      dispatch({
+        type: "clearMessage",
+      });
+    }
+  }, [dispatch, error, message])
 
   return (
     <section className="contact">
