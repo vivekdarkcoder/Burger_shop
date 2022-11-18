@@ -14,8 +14,13 @@ const Contact = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(contactUser(name, email, message))
+    setName(""),
+    setEmail(""),
+    setMessage("")
+    
   }
  
+
   useEffect(() => {
     if (error) {
       console.log('errof:>> ', error);
