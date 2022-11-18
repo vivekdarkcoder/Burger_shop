@@ -10,28 +10,27 @@ const Contact = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-  const { error, messagef  } = useSelector(state => state.auth)
+  const { error, messagef  } = useSelector(state => state.contact)
   const submitHandler = (e) => {
     e.preventDefault();
-    const data = { name, email, message }
-    console.log('data :>> ', data);
     dispatch(contactUser(name, email, message))
   }
-  console.log( error, messagef  )
+ 
   useEffect(() => {
     if (error) {
+      console.log('errof:>> ', error);
       toast.error(error)
       dispatch({
         type: "clearError",
       });
     }
-    if (message) {
+    if (messagef) {
       toast.success(messagef)
       dispatch({
         type: "clearMessage",
       });
     }
-  }, [dispatch, error, messagef])
+  }, [dispatch, error, messagef] )
 
   return (
     <section className="contact">
@@ -42,8 +41,8 @@ const Contact = () => {
         onSubmit={submitHandler}
       >
         <h2>Contact Us</h2>
-        <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input required type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+        <input required type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <textarea placeholder="Message....." cols="30" row="10" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
 
         <button type="submit" className="" >Send</button>

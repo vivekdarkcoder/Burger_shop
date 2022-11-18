@@ -19,10 +19,10 @@ export const contactUser = (  name, email, message ) =>  async (dispatch) =>{
         })
 
     } catch (error) {
-        console.log(error);
+        console.log(error.response?.data?.message);
         dispatch({
             type: "contactFailure",
-            payload: error.responsed.data?.message,
+            payload: error.response?.data?.message,
         });
     }
 
