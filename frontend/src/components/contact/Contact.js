@@ -10,16 +10,16 @@ const Contact = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-  const { error, messagef  } = useSelector(state => state.contact)
+  const { error, messagef } = useSelector(state => state.contact)
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(contactUser(name, email, message))
-    setName(""),
-    setEmail(""),
-    setMessage("")
-    
+    setName("");
+      setEmail("");
+      setMessage("")
+
   }
- 
+
 
   useEffect(() => {
     if (error) {
@@ -35,7 +35,7 @@ const Contact = () => {
         type: "clearMessage",
       });
     }
-  }, [dispatch, error, messagef] )
+  }, [dispatch, error, messagef])
 
   return (
     <section className="contact">
